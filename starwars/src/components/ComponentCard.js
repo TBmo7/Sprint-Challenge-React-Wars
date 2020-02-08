@@ -4,6 +4,8 @@ import styled from 'styled-components'
 //const [homeWorld,setHomeworld] = useState("Homeworld is severely underrated")
 
 const CardDiv = styled.div `
+    
+
     width:95%;
     height:95%;
     margin:3%;
@@ -13,7 +15,19 @@ const CardDiv = styled.div `
     justify-content:center;
     align-items:center;
     border: inset;
-    
+    animation-duration:3s;
+    animation-name: slidein;
+
+    @keyframes slidein{
+        from{
+            margin-left:100%;
+            width:300%;
+        }
+        to{
+            margin-left:3%;
+            width:95%;
+        }
+    }
     
     
     
@@ -38,9 +52,9 @@ const ComponentCard = props =>{
 
         <CardDiv>
            <CardPara>Subject Name: {props.data.name}</CardPara>
-    <li>Estimated Year of Origin: {props.data.birth_year}</li>
-    <li>Mass: {props.data.mass} kg</li> 
-    <BottomLi>Height: {props.data.height} cm</BottomLi>
+            <li>Estimated Year of Origin: {props.data.birth_year}</li>
+            <li>Mass: {props.data.mass} kg</li> 
+            <BottomLi>Height: {props.data.height} cm</BottomLi>
         </CardDiv>
 
 

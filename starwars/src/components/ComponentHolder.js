@@ -32,11 +32,24 @@ const DivButton = styled.button `
 `;
 
 
+
 export default function ComponentHolder(){
 //setting the API date
 const [charData,setCharData] = useState([]);
 //making a page changer
 const [page,setPage] = useState(1);
+
+function pageIncrement(){
+    if(page<9){
+        setPage(page+1);
+    }
+}
+function pageEnlessener(){
+    if(page>1){
+        setPage(page-1);
+    }
+}
+
 
 useEffect(()=>{
 console.log("api request");
@@ -68,8 +81,8 @@ return (
          
         }
         <ButtonDiv>
-        <DivButton onClick = {e=> setPage(page-1)}>Previous Page</DivButton>
-        <DivButton onClick = {e=> setPage(page+1)}>Next Page</DivButton>
+        <DivButton onClick = {e=> pageEnlessener()}>Previous Page</DivButton>
+        <DivButton onClick = {e=> pageIncrement()}>Next Page</DivButton>
         </ButtonDiv>
         
     </HolderDiv>
